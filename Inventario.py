@@ -8,3 +8,10 @@ for i in range(cantidad):
     talla=input("Ingrese la talla: ")
     preciounitario=input("Ingrese la preciounitario: ")
     cantidadenstock=int(input("Ingrese la cantidad en stock: "))
+    productos[codigo]={
+        "nombredelproducto":nombredelproducto,
+        "caregoria":caregoria,
+        "talla":talla,
+        "preciounitario":preciounitario,
+        "cantidadenstock":cantidadenstock,
+    }
