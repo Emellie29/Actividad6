@@ -59,4 +59,5 @@ else:
         print("Producto no encontrado.")
 
 inventario=sum(p['precio_uni']*p['stock'] for p in producto.values())
-print(f"\nTotal de inventario: {inventario}")
+print(f"\nTotal de inventario: Q.{inventario:.2f}")
+
