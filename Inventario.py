@@ -61,3 +61,11 @@ else:
 inventario=sum(p['precio_uni']*p['stock'] for p in producto.values())
 print(f"\nTotal de inventario: Q.{inventario:.2f}")
 
+conteo = {"Hombre": 0, "Mujer": 0, "Niño": 0}
+for datos in producto.values():
+    categoria = datos["categoria"]
+    if categoria in conteo:
+        conteo[categoria] += 1
+print("\nCantidad de productos por categoría:")
+for categoria, cantidad in conteo.items():
+    print(f"{categoria}: {cantidad}")
