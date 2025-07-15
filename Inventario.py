@@ -14,7 +14,7 @@ for i in range(cantidad):
         print("Ingrese una categoria valida")
         categoria=input("Categoria: ").capitalize()
 
-    talla=input("Ingrese la talla (S/M/L/XL): ")
+    talla=input("Ingrese la talla (S/M/L/XL): ").upper()
     while talla not in ["S","M","L","XL"]:
         print("Talla no valida")
         talla=input("Talla: ").upper()
@@ -25,37 +25,39 @@ for i in range(cantidad):
         precio_uni=float(input("Precio unidad Q."))
 
     stock=int(input("Ingrese la cantidad en stock: "))
-    while stock<0:
+    while stock <= 0:
         print("Ingrese una cantidad entera positiva")
-        stock=input("Cantidad en stock: ")
+        stock=int(input("Cantidad en stock: "))
 
-print("\nInventario:")
-for codigo, datos in producto.items():
-    print(f"Código: {codigo}")
-    print(f"Nombre: {datos['nombre']}")
-    print(f"Categoria: {datos['categoria']}")
-    print(f"Talla: {datos['talla']}")
-    print(f"Precio unidad: Q.{datos['precio']:.2f}")
-    print(f"Stock: {datos['stock']}")
-
-print("\nBúsqueda")
-busqueda=input("Ingrese código del producto: ").strip()
-if busqueda in producto:
-    print(f"Producto encotrado.")
-    #datos=producto[busqueda]
-    print(f"Nombre: {producto['nombre']}")
-    print(f"Categoria: {producto['categoria']}")
-    print(f"Talla: {producto['talla']}")
-    print(f"Precio unidad: Q.{producto['precio']}")
-    print(f"Stock: {producto['stock']}")
-else:
-    print("Producto no encontrado")
-
-
-    producto[codigo]={
+producto[codigo]={
         "nombre_producto":nombre_producto,
         "categoria":categoria,
         "talla":talla,
         "precio_uni":precio_uni,
         "stock":stock,
     }
+
+print("\nInventario:")
+for codigo, datos in producto.items():
+    print(f"Código: {codigo}")
+    #print(f"Nombre: {datos["nombre"]}")
+    print(f"Categoria: {datos['categoria']}")
+    print(f"Talla: {datos['talla']}")
+    print(f"Precio unidad: Q.{datos['precio']:.2f}")
+    print(f"Stock: {datos['stock']}")
+
+print("\nBúsqueda")
+while True:
+    busqueda=input("Ingrese código del producto: ").strip()
+    if busqueda.lower()=="Salir":
+        print("Busqueda terminada")
+        break
+    elif busqueda in producto:
+        print(f"Producto encotrado.")
+        print(f"Nombre: {producto[busqueda]['nombre']}")
+        print(f"Categoria: {producto[busqueda]['categoria']}")
+        print(f"Talla: {producto[busqueda]['talla']}")
+        print(f"Precio unidad: Q.{producto[busqueda]['precio']}")
+        print(f"Stock: {producto[busqueda]['stock']}")
+    else:
+        print("Producto no encontrado")
