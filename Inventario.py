@@ -46,17 +46,17 @@ for codigo, datos in producto.items():
     print(f"Precio unidad: Q.{datos['precio_uni']:.2f}")
     print(f"Stock: {datos['stock']}")
 
-print("\nBúsqueda")
-while True:
-    busqueda = input("Ingrese el código del producto (o escriba 'salir' para terminar): ").strip()
-    if busqueda.lower() == "salir":
-        break
-    if busqueda in producto:
-        print("Producto encontrado")
-        print(f"Nombre del producto: {producto[busqueda]['nombre_producto']}")
-        print(f"Categoria: {producto[busqueda]['categoria']}")
+print("Búsqueda")
+busqueda = int(input("Ingrese el código del producto: ").strip())
+if busqueda in producto:
+        print("Producto encontrado:")
+        print(f"Nombre: {producto[busqueda]['nombre_producto']}")
+        print(f"Categoría: {producto[busqueda]['categoria']}")
         print(f"Talla: {producto[busqueda]['talla']}")
-        print(f"Precio unidad: {producto[busqueda]['precio_uni']:.2f}")
+        print(f"Precio: Q{producto[busqueda]['precio_uni']:.2f}")
         print(f"Stock: {producto[busqueda]['stock']}")
-    else:
+else:
         print("Producto no encontrado.")
+
+inventario=sum(p['precio_uni']*p['stock'] for p in producto.values())
+print(f"\nTotal de inventario: {inventario}")
