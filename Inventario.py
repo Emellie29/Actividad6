@@ -39,15 +39,15 @@ for codigo, datos in producto.items():
     print(f"Stock: {datos['stock']}")
 
 print("\nBúsqueda")
-busqueda=input("Ingrese el código del producto: ").strip()
+busqueda=input("Ingrese código del producto: ").strip()
 if busqueda in producto:
     print(f"Producto encotrado.")
-    datos=producto[busqueda]
-    print(f"Nombre: {datos['nombre']}")
-    print(f"Categoria: {datos['categoria']}")
-    print(f"Talla: {datos['talla']}")
-    print(f"Precio unidad: Q.{datos['precio']}")
-    print(f"Stock: {datos['stock']}")
+    #datos=producto[busqueda]
+    print(f"Nombre: {producto['nombre']}")
+    print(f"Categoria: {producto['categoria']}")
+    print(f"Talla: {producto['talla']}")
+    print(f"Precio unidad: Q.{producto['precio']}")
+    print(f"Stock: {producto['stock']}")
 else:
     print("Producto no encontrado")
 
