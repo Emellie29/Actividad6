@@ -40,24 +40,23 @@ producto[codigo]={
 print("\nInventario:")
 for codigo, datos in producto.items():
     print(f"Código: {codigo}")
-    #print(f"Nombre: {datos["nombre"]}")
+    print(f"Nombre del producto: {datos['nombre_producto']}")
     print(f"Categoria: {datos['categoria']}")
     print(f"Talla: {datos['talla']}")
-    print(f"Precio unidad: Q.{datos['precio']:.2f}")
+    print(f"Precio unidad: Q.{datos['precio_uni']:.2f}")
     print(f"Stock: {datos['stock']}")
 
 print("\nBúsqueda")
 while True:
-    busqueda=input("Ingrese código del producto: ").strip()
-    if busqueda.lower()=="Salir":
-        print("Busqueda terminada")
+    busqueda = input("Ingrese el código del producto (o escriba 'salir' para terminar): ").strip()
+    if busqueda.lower() == "salir":
         break
-    elif busqueda in producto:
-        print(f"Producto encotrado.")
-        print(f"Nombre: {producto[busqueda]['nombre']}")
+    if busqueda in producto:
+        print("Producto encontrado")
+        print(f"Nombre del producto: {producto[busqueda]['nombre_producto']}")
         print(f"Categoria: {producto[busqueda]['categoria']}")
         print(f"Talla: {producto[busqueda]['talla']}")
-        print(f"Precio unidad: Q.{producto[busqueda]['precio']}")
+        print(f"Precio unidad: {producto[busqueda]['precio_uni']:.2f}")
         print(f"Stock: {producto[busqueda]['stock']}")
     else:
-        print("Producto no encontrado")
+        print("Producto no encontrado.")
