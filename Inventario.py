@@ -6,7 +6,6 @@ for i in range(cantidad):
     codigo=int(input("Ingrese el código: ").strip())
     if codigo in producto:
         print(f"El producto ya existe. Ingrese uno diferente.")
-
     nombre_producto=input("Nombre del producto: ").strip()
 
     categoria=input("Ingrese la categoria (Hombre/Mujer/Niño): ").capitalize()
